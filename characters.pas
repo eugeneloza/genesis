@@ -139,10 +139,6 @@ begin
     Electra     : Result := Multicase('Электра');
   end;
 end;
-function MultiCaseToString(const aMulticase: TMultiCase; const aCase: TCase): string;
-begin
-  Result := aMulticase[aCase];
-end;
 
 procedure OCharacter.MakeName;
   function GetFirstSyllable: string;
