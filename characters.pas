@@ -7,11 +7,7 @@ interface
 uses
   Generics.Collections,
   Classes, SysUtils,
-  Global, Time;
-
-type
-  TCase = (NOM, PRE, GEN, ACC, DAT, INS, VOC);
-  TMulticase = array [TCase] of string;
+  Global, Time, Words;
 
 type
   TChirality = (Felc, Girc);
@@ -120,27 +116,27 @@ begin
     Female: Result := 'Женщина';
   end;
 end;
-function NationalityToString(const aNationality: TNationality): string;
+function NationalityToMulticase(const aNationality: TNationality): TMulticase;
 begin
   case aNationality of
-    Socia       : Result := 'Социа';
-    Venada      : Result := 'Венада';
-    Norda       : Result := 'Норда';
-    Nocta       : Result := 'Нокта';
-    Mediana     : Result := 'Медиана';
-    Magmata     : Result := 'Магмата';
-    Scienta     : Result := 'Саента';
-    Vitana      : Result := 'Витана';
-    Somnia      : Result := 'Сомниа';
-    Transparenta: Result := 'Траснпарэнта';
-    Talpa       : Result := 'Талпа';
-    Serpenta    : Result := 'Сэрпэнта';
-    Aspecta     : Result := 'Аспекта';
-    Arachna     : Result := 'Аракна';
-    Glacia      : Result := 'Гляциа';
-    Amphibia    : Result := 'Амфибиа';
-    Ichta       : Result := 'Ихта';
-    Electra     : Result := 'Электра';
+    Socia       : Result := Multicase('Социа');
+    Venada      : Result := Multicase('Венада');
+    Norda       : Result := Multicase('Норда');
+    Nocta       : Result := Multicase('Нокта');
+    Mediana     : Result := Multicase('Медиана');
+    Magmata     : Result := Multicase('Магмата');
+    Scienta     : Result := Multicase('Саента');
+    Vitana      : Result := Multicase('Витана');
+    Somnia      : Result := Multicase('Сомниа');
+    Transparenta: Result := Multicase('Траснпарэнта');
+    Talpa       : Result := Multicase('Талпа');
+    Serpenta    : Result := Multicase('Сэрпэнта');
+    Aspecta     : Result := Multicase('Аспекта');
+    Arachna     : Result := Multicase('Аракна');
+    Glacia      : Result := Multicase('Гляциа');
+    Amphibia    : Result := Multicase('Амфибиа');
+    Ichta       : Result := Multicase('Ихта');
+    Electra     : Result := Multicase('Электра');
   end;
 end;
 function MultiCaseToString(const aMulticase: TMultiCase; const aCase: TCase): string;
@@ -181,7 +177,7 @@ procedure OCharacter.MakeName;
       26: Result := 'Ах';
       27: Result := 'Як';
       28: Result := 'Вер';
-      29: Result := 'Лоз';
+      29: Result := 'Лов';
       30: Result := 'Ром';
       31: Result := 'Пир';
       32: Result := 'Рев';
@@ -241,13 +237,7 @@ begin
 
   if Self.Gender = Male then
   begin
-    Name[NOM] := RandomRoot;
-    Name[PRE] := RandomRoot+'е';
-    Name[GEN] := RandomRoot+'а';
-    Name[ACC] := RandomRoot+'а';
-    Name[DAT] := RandomRoot+'у';
-    Name[INS] := RandomRoot+'ом';
-    Name[VOC] := RandomRoot+'э';
+    Name := Multicase(RandomRoot);
     ShortName[NOM] := FirstSyllable+'у';
     ShortName[PRE] := FirstSyllable+'е';
     ShortName[GEN] := FirstSyllable+'а';
@@ -258,13 +248,8 @@ begin
   end
   else
   begin
-    Name[NOM] := RandomRoot+'а';
-    Name[PRE] := RandomRoot+'е';
-    Name[GEN] := RandomRoot+'ы';
-    Name[ACC] := RandomRoot+'у';
-    Name[DAT] := RandomRoot+'е';
-    Name[INS] := RandomRoot+'ой';
-    Name[VOC] := RandomRoot+'о';
+    RandomRoot := RandomRoot + 'а';
+    Name := Multicase(RandomRoot);
     ShortName[NOM] := FirstSyllable+'и';
     ShortName[PRE] := FirstSyllable+'е';
     ShortName[GEN] := FirstSyllable+'и';
@@ -353,10 +338,21 @@ begin
 end;
 
 procedure OCharacter.Marry(const aSpouse: Ocharacter);
+var
+  sstring: string;
 begin
   Spouse := aSpouse;
   Spouse.Spouse := Self;
-  WriteLnLog(NationalityToString(Self.Nationality) + ' ' + MultiCaseToString(Self.Name, NOM) + ' вступил(а) в брак с ' + NationalityToString(Spouse.Nationality) + ' ' + MultiCaseToString(Spouse.Name, INS) + '  ' + TimeToString(Today));
+  if Self.Gender = Male then
+    sstring := ' вступил '
+  else
+    sstring := ' вступила ';
+  WriteLnLog(MultiCaseToString(NationalityToMulticase(Self.Nationality), NOM) +
+    ' ' + MultiCaseToString(Self.Name, NOM) +
+    sstring + 'в брак с ' +
+    MultiCaseToString(NationalityToMulticase(Spouse.Nationality), INS) +
+    ' ' + MultiCaseToString(Spouse.Name, INS) +
+    ' - ' + TimeToString(Today));
 end;
 
 procedure OCharacter.Divorce;
@@ -372,10 +368,10 @@ procedure OCharacter.WriteDebug;
     WriteLnLog(IntToStr(Self.ID), s);
   end;
 begin
-  W(MultiCaseToString(Self.Name, NOM) + ' (сокращённо ' + MultiCaseToString(Self.ShortName, NOM) + ')');
+  W(MultiCaseToString(Self.Name, NOM) + ' (просто ' + MultiCaseToString(Self.ShortName, NOM) + ')');
   W('Хиральность: ' + ChiralityToString(Self.Chirality));
   W('Пол: ' + GenderToString(Self.Gender));
-  W('Национальность: ' + NationalityToString(Self.Nationality));
+  W('Национальность: ' + MulticaseToString(NationalityToMulticase(Self.Nationality), NOM));
   if (Self.Father <> nil) and (Self.Mother <> nil) then begin
     if Self.Chirality = Girc then
     begin

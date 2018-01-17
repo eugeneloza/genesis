@@ -97,7 +97,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="5">
+    <Units Count="6">
       <Unit0>
         <Filename Value="genesis.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -125,6 +125,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Time"/>
       </Unit4>
+      <Unit5>
+        <Filename Value="words.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Words"/>
+      </Unit5>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -36,6 +36,8 @@ var
   i, j, k: integer;
   p1, p2: OCharacter;
 begin
+  Button1.Caption := 'Button' + Copy(Button1.Caption, Length(Button1.Caption), 1);
+
   for i := 0 to 100 do
   begin
     C := OCharacter.Create;
