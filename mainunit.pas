@@ -31,19 +31,44 @@ implementation
 { TForm1 }
 
 procedure TForm1.Button1Click(Sender: TObject);
-var C1, C2, C3: OCharacter;
+var
+  C: OCharacter;
+  i, j, k: integer;
+  p1, p2: OCharacter;
 begin
-  C1 := OCharacter.Create;
-  C2 := OCharacter.Create;
-  C3 := OCharacter.Create(C1, C2);
+  for i := 0 to 100 do
+  begin
+    C := OCharacter.Create;
+    Population.Add(C);
+  end;
 
-  C1.WriteDebug;
-  C2.WriteDebug;
-  C3.WriteDebug;
+  for j := 0 to 20 do
+  begin
+    p1 := Population[Rnd.Random(Population.Count)];
+    for k := 0 to Rnd.Random(4) do
+    begin
+      if (p1.Spouse = nil) or (p1.Chirality = Felc) then
+      begin
+        repeat
+          p2 := Population[Rnd.Random(Population.Count)];
+        until (p1 <> p2) and (p1.Chirality = p2.Chirality) and
+              (p1.Gender <> p2.Gender);
+        if p1.Chirality = Girc then
+          p1.Marry(p2);
+      end
+      else
+        p2 := p1.Spouse;
 
-  C1.Free;
-  C2.Free;
-  C3.Free;
+
+      C := OCharacter.Create(p1, p2);
+      if C.isValid then begin
+        Population.Add(C);
+        C.WriteDebug;
+      end
+      else
+        C.Free;
+    end;
+  end;
 end;
 
 end.
