@@ -1,0 +1,2 @@
+# GENESIS
+Genesis is an experiment on building a living world, where npc are born, they live, get married, experience some events in their lives, they have children and friends and finally they die. Aimed at building an in-depth background to main story of Oazis game (which will hardly ever happen).
