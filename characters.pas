@@ -109,38 +109,38 @@ uses
 function ChiralityToString(const aChirality: TChirality): string;
 begin
   case aChirality of
-    Felc: Result := 'Felc';
-    Girc: Result := 'Girc';
+    Felc: Result := 'Фэлк';
+    Girc: Result := 'Гирк';
   end;
 end;
 function GenderToString(const aGender: TGender): string;
 begin
   case aGender of
-    Male: Result := 'Male';
-    Female: Result := 'Female';
+    Male: Result := 'Мужчина';
+    Female: Result := 'Женщина';
   end;
 end;
 function NationalityToString(const aNationality: TNationality): string;
 begin
   case aNationality of
-    Socia       : Result := 'Socia';
-    Venada      : Result := 'Venada';
-    Norda       : Result := 'Norda';
-    Nocta       : Result := 'Nocta';
-    Mediana     : Result := 'Mediana';
-    Magmata     : Result := 'Magmata';
-    Scienta     : Result := 'Scienta';
-    Vitana      : Result := 'Vitana';
-    Somnia      : Result := 'Somnia';
-    Transparenta: Result := 'Transparenta';
-    Talpa       : Result := 'Talpa';
-    Serpenta    : Result := 'Serpenta';
-    Aspecta     : Result := 'Aspecta';
-    Arachna     : Result := 'Arachna';
-    Glacia      : Result := 'Glacia';
-    Amphibia    : Result := 'Amphibia';
-    Ichta       : Result := 'Ichta';
-    Electra     : Result := 'Electra';
+    Socia       : Result := 'Социа';
+    Venada      : Result := 'Венада';
+    Norda       : Result := 'Норда';
+    Nocta       : Result := 'Нокта';
+    Mediana     : Result := 'Медиана';
+    Magmata     : Result := 'Магмата';
+    Scienta     : Result := 'Саента';
+    Vitana      : Result := 'Витана';
+    Somnia      : Result := 'Сомниа';
+    Transparenta: Result := 'Траснпарэнта';
+    Talpa       : Result := 'Талпа';
+    Serpenta    : Result := 'Сэрпэнта';
+    Aspecta     : Result := 'Аспекта';
+    Arachna     : Result := 'Аракна';
+    Glacia      : Result := 'Гляциа';
+    Amphibia    : Result := 'Амфибиа';
+    Ichta       : Result := 'Ихта';
+    Electra     : Result := 'Электра';
   end;
 end;
 function MultiCaseToString(const aMulticase: TMultiCase; const aCase: TCase): string;
@@ -152,77 +152,77 @@ procedure OCharacter.MakeName;
   function GetFirstSyllable: string;
   begin
     case Rnd.Random(32+1) of
-       0: Result := 'Ar';
-       1: Result := 'Ell';
-       2: Result := 'Fan';
-       3: Result := 'Yen';
-       4: Result := 'Bas';
-       5: Result := 'Cal';
-       6: Result := 'Ram';
-       7: Result := 'Dot';
-       8: Result := 'Sim';
-       9: Result := 'Ran';
-      10: Result := 'Cor';
-      11: Result := 'Dis';
-      12: Result := 'Vil';
-      13: Result := 'Pol';
-      14: Result := 'Er';
-      15: Result := 'Om';
-      16: Result := 'Ak';
-      17: Result := 'Pan';
-      18: Result := 'Wog';
-      19: Result := 'Yam';
-      20: Result := 'Kit';
-      21: Result := 'Res';
-      22: Result := 'But';
-      23: Result := 'Im';
-      24: Result := 'Ol';
-      25: Result := 'Ag';
-      26: Result := 'Ax';
-      27: Result := 'Jaq';
-      28: Result := 'Ver';
-      29: Result := 'Loz';
-      30: Result := 'Rom';
-      31: Result := 'Pyr';
-      32: Result := 'Rew';
+       0: Result := 'Ар';
+       1: Result := 'Эл';
+       2: Result := 'Фан';
+       3: Result := 'Ен';
+       4: Result := 'Бас';
+       5: Result := 'Кал';
+       6: Result := 'Рам';
+       7: Result := 'Дот';
+       8: Result := 'Сим';
+       9: Result := 'Ран';
+      10: Result := 'Кор';
+      11: Result := 'Дис';
+      12: Result := 'Вил';
+      13: Result := 'Пол';
+      14: Result := 'Эр';
+      15: Result := 'Ом';
+      16: Result := 'Ак';
+      17: Result := 'Пан';
+      18: Result := 'Вог';
+      19: Result := 'Ям';
+      20: Result := 'Кит';
+      21: Result := 'Рес';
+      22: Result := 'Бат';
+      23: Result := 'Им';
+      24: Result := 'Ол';
+      25: Result := 'Аг';
+      26: Result := 'Ах';
+      27: Result := 'Як';
+      28: Result := 'Вер';
+      29: Result := 'Лоз';
+      30: Result := 'Ром';
+      31: Result := 'Пир';
+      32: Result := 'Рев';
     end;
   end;
   function GetMidSyllable: string;
   begin
     case Rnd.Random(32+1) of
-       0: Result := 'ac';
-       1: Result := 'or';
-       2: Result := 'is';
-       3: Result := 'am';
-       4: Result := 'el';
-       5: Result := 'od';
-       6: Result := 'av';
-       7: Result := 'es';
-       8: Result := 'un';
-       9: Result := 'ew';
-      10: Result := 'up';
-      11: Result := 'at';
-      12: Result := 'ot';
-      13: Result := 'arg';
-      14: Result := 'ol';
-      15: Result := 'aj';
-      16: Result := 'oz';
-      17: Result := 'um';
-      18: Result := 'og';
-      19: Result := 'et';
-      20: Result := 'od';
-      21: Result := 'in';
-      22: Result := 'ax';
-      23: Result := 'ek';
-      24: Result := 'urq';
-      25: Result := 'arq';
-      26: Result := 'ar';
-      27: Result := 'as';
-      28: Result := 'op';
-      29: Result := 'af';
-      30: Result := 'ef';
-      31: Result := 'il';
-      32: Result := 'er';
+       0: Result := 'ас';
+       1: Result := 'ор';
+       2: Result := 'ис';
+       3: Result := 'ам';
+       4: Result := 'эль';
+       5: Result := 'од';
+       6: Result := 'ав';
+       7: Result := 'эс';
+       8: Result := 'ан';
+       9: Result := 'эв';
+      10: Result := 'ап';
+      11: Result := 'ат';
+      12: Result := 'от';
+      13: Result := 'арг';
+      14: Result := 'ол';
+      15: Result := 'аф';
+      16: Result := 'ох';
+      17: Result := 'ам';
+      18: Result := 'ог';
+      19: Result := 'эт';
+      20: Result := 'од';
+      21: Result := 'ин';
+      22: Result := 'ах';
+      23: Result := 'эк';
+      24: Result := 'ур';
+      25: Result := 'арг';
+      26: Result := 'аг';
+      27: Result := 'аш';
+      28: Result := 'ор';
+      29: Result := 'аф';
+      30: Result := 'эф';
+      31: Result := 'ил';
+      32: Result := 'эр';
     end;
   end;
 var
@@ -242,36 +242,36 @@ begin
   if Self.Gender = Male then
   begin
     Name[NOM] := RandomRoot;
-    Name[PRE] := RandomRoot+'a';
-    Name[GEN] := RandomRoot+'a';
-    Name[ACC] := RandomRoot+'a';
-    Name[DAT] := RandomRoot+'u';
-    Name[INS] := RandomRoot+'om';
-    Name[VOC] := RandomRoot+'e';
-    ShortName[NOM] := FirstSyllable+'y';
-    ShortName[PRE] := FirstSyllable+'e';
-    ShortName[GEN] := FirstSyllable+'a';
-    ShortName[ACC] := FirstSyllable+'y';
-    ShortName[DAT] := FirstSyllable+'u';
-    ShortName[INS] := FirstSyllable+'om';
-    ShortName[VOC] := FirstSyllable+'y';
+    Name[PRE] := RandomRoot+'е';
+    Name[GEN] := RandomRoot+'а';
+    Name[ACC] := RandomRoot+'а';
+    Name[DAT] := RandomRoot+'у';
+    Name[INS] := RandomRoot+'ом';
+    Name[VOC] := RandomRoot+'э';
+    ShortName[NOM] := FirstSyllable+'у';
+    ShortName[PRE] := FirstSyllable+'е';
+    ShortName[GEN] := FirstSyllable+'а';
+    ShortName[ACC] := FirstSyllable+'у';
+    ShortName[DAT] := FirstSyllable+'у';
+    ShortName[INS] := FirstSyllable+'ом';
+    ShortName[VOC] := FirstSyllable+'у';
   end
   else
   begin
-    Name[NOM] := RandomRoot+'a';
-    Name[PRE] := RandomRoot+'u';
-    Name[GEN] := RandomRoot+'y';
-    Name[ACC] := RandomRoot+'u';
-    Name[DAT] := RandomRoot+'e';
-    Name[INS] := RandomRoot+'oy';
-    Name[VOC] := RandomRoot+'o';
-    ShortName[NOM] := FirstSyllable+'i';
-    ShortName[PRE] := FirstSyllable+'e';
-    ShortName[GEN] := FirstSyllable+'i';
-    ShortName[ACC] := FirstSyllable+'i';
-    ShortName[DAT] := FirstSyllable+'e';
-    ShortName[INS] := FirstSyllable+'oj';
-    ShortName[VOC] := FirstSyllable+'i';
+    Name[NOM] := RandomRoot+'а';
+    Name[PRE] := RandomRoot+'е';
+    Name[GEN] := RandomRoot+'ы';
+    Name[ACC] := RandomRoot+'у';
+    Name[DAT] := RandomRoot+'е';
+    Name[INS] := RandomRoot+'ой';
+    Name[VOC] := RandomRoot+'о';
+    ShortName[NOM] := FirstSyllable+'и';
+    ShortName[PRE] := FirstSyllable+'е';
+    ShortName[GEN] := FirstSyllable+'и';
+    ShortName[ACC] := FirstSyllable+'у';
+    ShortName[DAT] := FirstSyllable+'е';
+    ShortName[INS] := FirstSyllable+'ой';
+    ShortName[VOC] := FirstSyllable+'и';
   end;
 
 end;
@@ -356,12 +356,12 @@ procedure OCharacter.Marry(const aSpouse: Ocharacter);
 begin
   Spouse := aSpouse;
   Spouse.Spouse := Self;
-  WriteLnLog(NationalityToString(Self.Nationality) + ' ' + MultiCaseToString(Self.Name, NOM) + ' married ' + NationalityToString(Spouse.Nationality) + ' ' + MultiCaseToString(Spouse.Name, ACC) + ' on ' + TimeToString(Today));
+  WriteLnLog(NationalityToString(Self.Nationality) + ' ' + MultiCaseToString(Self.Name, NOM) + ' вступил(а) в брак с ' + NationalityToString(Spouse.Nationality) + ' ' + MultiCaseToString(Spouse.Name, INS) + '  ' + TimeToString(Today));
 end;
 
 procedure OCharacter.Divorce;
 begin
-  WriteLnLog(MultiCaseToString(Self.Name, NOM) + ' and ' + MultiCaseToString(Spouse.Name, NOM) + ' are no longer married on ' + TimeToString(Today));
+  WriteLnLog(MultiCaseToString(Self.Name, NOM) + ' и ' + MultiCaseToString(Spouse.Name, NOM) + ' более не состоят в браке ' + TimeToString(Today));
   Spouse.Spouse := nil;
   Spouse := nil;
 end;
@@ -372,28 +372,28 @@ procedure OCharacter.WriteDebug;
     WriteLnLog(IntToStr(Self.ID), s);
   end;
 begin
-  W(MultiCaseToString(Self.Name, NOM) + ' (aka ' + MultiCaseToString(Self.ShortName, NOM) + ')');
-  W('Chirality: ' + ChiralityToString(Self.Chirality));
-  W('Gender: ' + GenderToString(Self.Gender));
-  W('Nationality: ' + NationalityToString(Self.Nationality));
+  W(MultiCaseToString(Self.Name, NOM) + ' (сокращённо ' + MultiCaseToString(Self.ShortName, NOM) + ')');
+  W('Хиральность: ' + ChiralityToString(Self.Chirality));
+  W('Пол: ' + GenderToString(Self.Gender));
+  W('Национальность: ' + NationalityToString(Self.Nationality));
   if (Self.Father <> nil) and (Self.Mother <> nil) then begin
     if Self.Chirality = Girc then
     begin
       case Self.Gender of
-        Male: W('Son of ' + MultiCaseToString(Self.Father.Name, GEN) + ' and ' + MultiCaseToString(Self.Mother.Name, GEN));
-        Female: W('Daughter of ' + MultiCaseToString(Self.Father.Name, GEN) + ' and ' + MultiCaseToString(Self.Mother.Name, GEN));
+        Male: W('Сын ' + MultiCaseToString(Self.Father.Name, GEN) + ' и ' + MultiCaseToString(Self.Mother.Name, GEN));
+        Female: W('Дочь ' + MultiCaseToString(Self.Father.Name, GEN) + ' и ' + MultiCaseToString(Self.Mother.Name, GEN));
       end;
     end
     else
     begin
       case Self.Gender of
-        Male: W('Son of ' + MultiCaseToString(Self.Mother.Name, GEN));
-        Female: W('Daughter of ' + MultiCaseToString(Self.Mother.Name, GEN));
+        Male: W('Сын ' + MultiCaseToString(Self.Mother.Name, GEN));
+        Female: W('Дочь ' + MultiCaseToString(Self.Mother.Name, GEN));
       end;
     end;
   end
   else
-    W('Parents unknown');
+    W('Родители неизвестны');
   WriteLnLog(':::::::::::::::::::::::::','');
 end;
 
@@ -401,11 +401,11 @@ class procedure OCharacter.InitGenes;
 begin
   SetLength(GeneInfo, GeneCount);
   with GeneInfo[0] do begin
-    GeneName := 'Eyes';
+    GeneName := 'Глаза';
     GeneMaxValue := 10;
   end;
   with GeneInfo[0] do begin
-    GeneName := 'Nose';
+    GeneName := 'Нос';
     GeneMaxValue := 10;
   end;
 end;

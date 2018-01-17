@@ -18,7 +18,7 @@ implementation
 
 function TimeToString(aTime: OTime): string;
 begin
-  Result := 'year ' + IntToStr(Round(aTime) div 350) + ' day ' + IntToStr(Round(aTime) mod 350);
+  Result := 'год ' + IntToStr(Round(aTime) div 350) + ' день ' + IntToStr(Round(aTime) mod 350);
 end;
 
 
