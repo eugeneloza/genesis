@@ -1,0 +1,46 @@
+# Garbage and temporary files
+
+*.compiled
+*.rsj
+*.rst
+*.o
+*.or
+*.ppu
+*~
+*.a
+*.lps
+*.bak
+*.fuse_hidden*
+*.dbg
+backup
+lib
+library
+link.res
+castle-engine-output/
+
+# Logs, screenshots and to-do's
+
+*.log
+*commit*
+log_*.txt
+heap.trc
+
+# Executable and compiled files
+
+*.apk
+*.exe
+
+# DLLs
+
+freetype-6.dll
+libpng14-14.dll
+ogg.dll
+OpenAL32.dll
+vorbis.dll
+vorbisfile.dll
+wrap_oal.dll
+zlib1.dll
+
+# Linux executables
+
+genesis
