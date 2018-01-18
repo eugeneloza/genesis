@@ -1,4 +1,4 @@
-{Copyright (C) 2012-2018 Yevhen Loza
+{Copyright (C) 2017-2018 Yevhen Loza
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.}
 
 unit Words;
 
-{$mode objfpc}{$H+}
+{$INCLUDE compilerconfig.inc}
 
 interface
 
@@ -76,7 +76,7 @@ begin
     Result[ACC] := WordBase + 'я';
     Result[DAT] := WordBase + 'ю';
     Result[INS] := WordBase + 'ем';
-    Result[VOC] := WordBase + 'ё';
+    Result[VOC] := WordBase + 'о';
   end
   else
   if (Copy(aWord, Length(aWord) - Length('ё') + 1, Length('ё')) = 'ё') then
