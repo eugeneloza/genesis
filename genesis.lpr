@@ -7,7 +7,8 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, OazisMain, oazischaracters, castle_base, oazisglobal, OazisTime, oaziswords;
+  Forms, OazisMain, OazisCharacters, castle_base, OazisGlobal, OazisTime,
+  OazisWords, OazisFacts;
 
 {$R *.res}
 

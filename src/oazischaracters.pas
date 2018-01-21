@@ -26,7 +26,7 @@ interface
 uses
   Generics.Collections,
   Classes, SysUtils,
-  OazisGlobal, OazisTime, OazisWords;
+  OazisGlobal, OazisTime, OazisWords, OazisFacts;
 
 type
   TChirality = (Felc, Girc);
@@ -38,7 +38,6 @@ type
                   Transparenta, Talpa, Serpenta,
                   Aspecta, Arachna, Glacia,
                   Amphibia, Ichta, Electra);
-  TID = cardinal;
 
 const
   GircNationality = [Socia, Venada, Norda,
@@ -97,6 +96,10 @@ type OCharacter = class(TObject)
     procedure Marry(const aSpouse: Ocharacter);
     procedure Divorce;
     procedure WriteDebug;
+  public
+    Facts: OFactList;
+  strict private
+    procedure Init;
   public
     { birth of a character }
     constructor Create(const aParent1, aParent2: OCharacter);
@@ -285,10 +288,6 @@ end;
 
 procedure OCharacter.MakeRandomCharacter(const aNationality: TNationality);
 begin
-  SetLength(Genes, GeneCount);
-  isValid := true;
-  Inc(GlobalID);
-  ID := GlobalID;
 
   Gender := specialize RandomEnum<TGender>;
   Nationality := aNationality;
@@ -304,18 +303,30 @@ begin
 
 end;
 
+procedure OCharacter.Init;
+begin
+  Facts := OFactList.Create(True);
+  SetLength(Genes, GeneCount);
+  isValid := true;
+  Inc(GlobalID);
+  ID := GlobalID;
+end;
+
 constructor OCharacter.Create;
 begin
+  Init;
   MakeRandomCharacter(RandomNationality);
 end;
 
 constructor OCharacter.Create(const aNationality: TNationality);
 begin
+  Init;
   MakeRandomCharacter(aNationality);
 end;
 
 constructor OCharacter.Create(const aParent1, aParent2: OCharacter);
 begin
+  Init;
   isValid := true;
   Inc(GlobalID);
   ID := GlobalID;

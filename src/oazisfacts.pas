@@ -15,42 +15,54 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.}
 
 {---------------------------------------------------------------------------}
 
-(* Global variables and components *)
+(* Facts are events in character's life *)
 
-unit OazisGlobal;
+unit OazisFacts;
 
 {$INCLUDE compilerconfig.inc}
 
 interface
 
 uses
-  CastleRandom, CastleLog, Generics.Collections;
+  Generics.Collections,
+  OazisWords, OazisGlobal, OazisTime;
 
 type
-  { ID of any entity in-game, this may be character, creature, location, item,
-    anything }
-  TId = cardinal;
-  TIdList = specialize TList<TId>;
+  OFact = class(TObject)
+  public
+    Parent: TId;
+    About: TIdList;
+    Time: OTime;
+    function Say: string; virtual; abstract;
+    constructor Create;
+    destructor Destroy; override;
+  end;
+  OFactList = specialize TObjectList<OFact>;
 
 type
-  OFloat = single;
+  OBirthdayFact = class(OFact)
+  public
+    function Say: string; override;
+  end;
 
-var Rnd: TCastleRandom;
-
-generic function RandomEnum<T>: T;
 implementation
 
-generic function RandomEnum<T>: T;
+constructor OFact.Create;
 begin
-  Result := T(Rnd.Random(Ord(High(T)) - Ord(Low(T)) + 1));
+  //nothing to inherit
+  About := TIdList.Create;
 end;
 
-initialization
-  InitializeLog;
-  Rnd := TCastleRandom.Create;
+destructor OFact.Destroy;
+begin
+  About.Free;
+  inherited Destroy;
+end;
 
-finalization
-  Rnd.Free;
+function OBirthdayFact.Say: string;
+begin
+  Result := 'Я родился(ась) ' + TimeToString(Self.Time, GEN);
+end;
 
 end.
 
