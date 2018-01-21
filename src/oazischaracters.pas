@@ -119,7 +119,7 @@ var
 
 implementation
 uses
-  CastleLog;
+  OazisMain;
 
 function ChiralityToString(const aChirality: TChirality): string;
 begin
@@ -362,7 +362,7 @@ begin
     sstring := ' вступил '
   else
     sstring := ' вступила ';
-  WriteLnLog(MultiCaseToString(NationalityToMulticase(Self.Nationality), NOM) +
+  Form1.Memo1.Lines.Add(MultiCaseToString(NationalityToMulticase(Self.Nationality), NOM) +
     ' ' + MultiCaseToString(Self.Name, NOM) +
     sstring + 'в брак с ' +
     MultiCaseToString(NationalityToMulticase(Spouse.Nationality), INS) +
@@ -372,7 +372,7 @@ end;
 
 procedure OCharacter.Divorce;
 begin
-  WriteLnLog(MultiCaseToString(Self.Name, NOM) + ' и ' + MultiCaseToString(Spouse.Name, NOM) + ' более не состоят в браке ' + TimeToString(Today, GEN));
+  Form1.Memo1.LInes.Add(MultiCaseToString(Self.Name, NOM) + ' и ' + MultiCaseToString(Spouse.Name, NOM) + ' более не состоят в браке ' + TimeToString(Today, GEN));
   Spouse.Spouse := nil;
   Spouse := nil;
 end;
@@ -380,7 +380,7 @@ end;
 procedure OCharacter.WriteDebug;
   procedure W(s: string);
   begin
-    WriteLnLog(IntToStr(Self.ID), s);
+    Form1.Memo1.Lines.Add(IntToStr(Self.ID) + ':' + s);
   end;
 begin
   W(MultiCaseToString(Self.Name, NOM) + ' (просто ' + MultiCaseToString(Self.ShortName, NOM) + ')');
@@ -405,7 +405,7 @@ begin
   end
   else
     W('Родители неизвестны');
-  WriteLnLog(':::::::::::::::::::::::::','');
+  Form1.Memo1.Lines.Add(':::::::::::::::::::::::::');
 end;
 
 class procedure OCharacter.InitGenes;
