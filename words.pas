@@ -49,16 +49,25 @@ begin
   Result := aMulticase[aCase];
 end;
 
+function isLastLetter(const aLetter, aString: string): boolean;
+begin
+  Result := Copy(aString, Length(aString) - Length(aLetter) + 1, Length(aLetter)) = aLetter;
+end;
+function CropLastLetter(const aLetter, aString: string): string;
+begin
+  Result := Copy(aString, 1, Length(aString) - Length(aLetter));
+end;
+
 function Multicase(const aWord: string): TMulticase;
 var
   WordBase: string;
 begin
   //WriteLnLog(AWord, IntToStr(Length(aWord)));
   Result[NOM] := aWord;
-  if Copy(aWord, Length(aWord) - Length('а') + 1, Length('а')) = 'а' then
+  if isLastLetter('а', aWord) then
   begin
     //as femininum
-    WordBase := Copy(aWord, 1, Length(aWord) - Length('а'));
+    WordBase := CropLastLetter('а', aWord);
     Result[PRE] := WordBase + 'е';
     Result[GEN] := WordBase + 'ы';
     Result[ACC] := WordBase + 'у';
@@ -67,10 +76,10 @@ begin
     Result[VOC] := WordBase + 'о';
   end
   else
-  if (Copy(aWord, Length(aWord) - Length('е') + 1, Length('е')) = 'е') then
+  if isLastLetter('е', aWord) then
   begin
     //as masculinum + jot + е
-    WordBase := Copy(aWord, 1, Length(aWord) - Length('е'));
+    WordBase := CropLastLetter('е', aWord);
     Result[PRE] := WordBase + 'е';
     Result[GEN] := WordBase + 'я';
     Result[ACC] := WordBase + 'я';
@@ -79,11 +88,11 @@ begin
     Result[VOC] := WordBase + 'о';
   end
   else
-  if (Copy(aWord, Length(aWord) - Length('ё') + 1, Length('ё')) = 'ё') then
+  if isLastLetter('ё', aWord) then
   begin
     //as masculinum + jot + е
     {$HINT todo}
-    WordBase := Copy(aWord, 1, Length(aWord) - Length('ё'));
+    WordBase := CropLastLetter('ё', aWord);
     Result[PRE] := WordBase + '';
     Result[GEN] := WordBase + '';
     Result[ACC] := WordBase + '';
@@ -92,11 +101,11 @@ begin
     Result[VOC] := WordBase + '';
   end
   else
-  if (Copy(aWord, Length(aWord) - Length('ю') + 1, Length('ю')) = 'ю') then
+  if isLastLetter('ю', aWord) then
   begin
     //as masculinum + jot + u
     {$HINT todo}
-    WordBase := Copy(aWord, 1, Length(aWord) - Length('ю'));
+    WordBase := CropLastLetter('ю', aWord);
     Result[PRE] := WordBase + '';
     Result[GEN] := WordBase + '';
     Result[ACC] := WordBase + '';
@@ -105,10 +114,10 @@ begin
     Result[VOC] := WordBase + '';
   end
   else
-  if (Copy(aWord, Length(aWord) - Length('й') + 1, Length('й')) = 'й') then
+  if isLastLetter('й', aWord) then
   begin
     //as masculinum + jot
-    WordBase := Copy(aWord, 1, Length(aWord) - Length('й'));
+    WordBase := CropLastLetter('й', aWord);
     Result[PRE] := WordBase + 'ем';
     Result[GEN] := WordBase + 'я';
     Result[ACC] := WordBase + 'я';
@@ -117,11 +126,11 @@ begin
     Result[VOC] := aWord;
   end
   else
-  if (Copy(aWord, Length(aWord) - Length('и') + 1, Length('и')) = 'и') then
+  if isLastLetter('и', aWord) then
   begin
     //as masculinum + jot
     {$HINT todo}
-    WordBase := Copy(aWord, 1, Length(aWord) - Length('и'));
+    WordBase := CropLastLetter('и', aWord);
     Result[PRE] := WordBase + '';
     Result[GEN] := WordBase + '';
     Result[ACC] := WordBase + '';
@@ -130,11 +139,11 @@ begin
     Result[VOC] := aWord;
   end
   else
-  if (Copy(aWord, Length(aWord) - Length('ь') + 1, Length('ь')) = 'ь') then
+  if isLastLetter('ь', aWord) then
   begin
     //as masculinum + jot
     {$HINT todo}
-    WordBase := Copy(aWord, 1, Length(aWord) - Length('ь'));
+    WordBase := CropLastLetter('ь', aWord);
     Result[PRE] := WordBase + '';
     Result[GEN] := WordBase + '';
     Result[ACC] := WordBase + '';
@@ -143,11 +152,11 @@ begin
     Result[VOC] := aWord;
   end
   else
-  if (Copy(aWord, Length(aWord) - Length('ъ') + 1, Length('ъ')) = 'ъ') then
+  if isLastLetter('ъ', aWord) then
   begin
     //as masculinum + jot
     {$HINT todo}
-    WordBase := Copy(aWord, 1, Length(aWord) - Length('ъ'));
+    WordBase := CropLastLetter('ъ', aWord);
     Result[PRE] := WordBase + '';
     Result[GEN] := WordBase + '';
     Result[ACC] := WordBase + '';
@@ -156,9 +165,9 @@ begin
     Result[VOC] := aWord;
   end
   else
-  if (Copy(aWord, Length(aWord) - Length('о') + 1, Length('о')) = 'о') or
-    (Copy(aWord, Length(aWord) - Length('у') + 1, Length('у')) = 'у') or
-    (Copy(aWord, Length(aWord) - Length('ы') + 1, Length('ы')) = 'ы') then
+  if (isLastLetter('о', aWord)) or
+    (isLastLetter('у', aWord)) or
+    (isLastLetter('ы', aWord)) then
   begin
     // doesn't change
     Result[PRE] := aWord;
