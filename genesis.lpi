@@ -19,7 +19,7 @@
             <Filename Value="genesis"/>
           </Target>
           <SearchPaths>
-            <IncludeFiles Value="$(ProjOutDir)"/>
+            <IncludeFiles Value="$(ProjOutDir);src"/>
             <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>
@@ -58,7 +58,7 @@
             <Filename Value="genesis"/>
           </Target>
           <SearchPaths>
-            <IncludeFiles Value="$(ProjOutDir)"/>
+            <IncludeFiles Value="$(ProjOutDir);src"/>
             <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
@@ -97,39 +97,43 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="6">
+    <Units Count="7">
       <Unit0>
         <Filename Value="genesis.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="mainunit.pas"/>
+        <Filename Value="src/oazismain.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="MainUnit"/>
+        <UnitName Value="OazisMain"/>
       </Unit1>
       <Unit2>
-        <Filename Value="characters.pas"/>
+        <Filename Value="src/oazischaracters.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="Characters"/>
+        <UnitName Value="OazisCharacters"/>
       </Unit2>
       <Unit3>
-        <Filename Value="global.pas"/>
+        <Filename Value="src/oazisglobal.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="Global"/>
+        <UnitName Value="OazisGlobal"/>
       </Unit3>
       <Unit4>
-        <Filename Value="time.pas"/>
+        <Filename Value="src/oazistime.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="Time"/>
+        <UnitName Value="OazisTime"/>
       </Unit4>
       <Unit5>
-        <Filename Value="words.pas"/>
+        <Filename Value="src/oaziswords.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="Words"/>
+        <UnitName Value="OazisWords"/>
       </Unit5>
+      <Unit6>
+        <Filename Value="src/compilerconfig.inc"/>
+        <IsPartOfProject Value="True"/>
+      </Unit6>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -138,7 +142,8 @@
       <Filename Value="genesis"/>
     </Target>
     <SearchPaths>
-      <IncludeFiles Value="$(ProjOutDir)"/>
+      <IncludeFiles Value="$(ProjOutDir);src"/>
+      <OtherUnitFiles Value="src;src/backup"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

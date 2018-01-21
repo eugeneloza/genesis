@@ -17,7 +17,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.}
 
 (* Operating words and cases *)
 
-unit Words;
+unit OazisWords;
 
 {$INCLUDE compilerconfig.inc}
 

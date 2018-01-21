@@ -17,7 +17,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.}
 
 (* Global variables and components *)
 
-unit Global;
+unit OazisGlobal;
 
 {$INCLUDE compilerconfig.inc}
 

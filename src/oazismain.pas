@@ -17,7 +17,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.}
 
 (* Main file *)
 
-unit MainUnit;
+unit OazisMain;
 
 {$INCLUDE compilerconfig.inc}
 
@@ -25,7 +25,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  Characters, Global;
+  OazisCharacters, OazisGlobal;
 
 type
 

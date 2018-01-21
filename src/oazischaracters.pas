@@ -17,7 +17,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.}
 
 (* Description of living characters *)
 
-unit Characters;
+unit OazisCharacters;
 
 {$INCLUDE compilerconfig.inc}
 
@@ -26,7 +26,7 @@ interface
 uses
   Generics.Collections,
   Classes, SysUtils,
-  Global, Time, Words;
+  OazisGlobal, OazisTime, OazisWords;
 
 type
   TChirality = (Felc, Girc);

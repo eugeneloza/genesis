@@ -17,7 +17,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.}
 
 (* Time routines, including converting time to string *)
 
-unit Time;
+unit OazisTime;
 
 {$INCLUDE compilerconfig.inc}
 
@@ -25,7 +25,7 @@ interface
 
 uses
   Classes, SysUtils,
-  Words;
+  OazisWords;
 
 type
   OTime = double;
@@ -38,10 +38,10 @@ implementation
 
 function TimeToString(const aTime: OTime; const aCase: TCase): string;
 begin
-  Result := IntToStr(Round(aTime) mod 350 + 1) +' ' +
-  WordCase('шен', aCase)
+  Result := IntToStr(Round(aTime) mod 350 + 1) + ' ' +
+  WordCase('совов', aCase) //spin
   + ' ' + IntToStr(Round(aTime) div 350 + 1) + ' ' +
-  WordCase('шанах', aCase);
+  WordCase('шанах', aCase); //season, cycle
 end;
 
 
