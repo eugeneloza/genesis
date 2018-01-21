@@ -367,12 +367,12 @@ begin
     sstring + 'в брак с ' +
     MultiCaseToString(NationalityToMulticase(Spouse.Nationality), INS) +
     ' ' + MultiCaseToString(Spouse.Name, INS) +
-    ' - ' + TimeToString(Today));
+    ' - ' + TimeToString(Today, GEN));
 end;
 
 procedure OCharacter.Divorce;
 begin
-  WriteLnLog(MultiCaseToString(Self.Name, NOM) + ' и ' + MultiCaseToString(Spouse.Name, NOM) + ' более не состоят в браке ' + TimeToString(Today));
+  WriteLnLog(MultiCaseToString(Self.Name, NOM) + ' и ' + MultiCaseToString(Spouse.Name, NOM) + ' более не состоят в браке ' + TimeToString(Today, GEN));
   Spouse.Spouse := nil;
   Spouse := nil;
 end;

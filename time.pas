@@ -24,7 +24,8 @@ unit Time;
 interface
 
 uses
-  Classes, SysUtils;
+  Classes, SysUtils,
+  Words;
 
 type
   OTime = double;
@@ -32,12 +33,15 @@ type
 var
   Today: OTime = 0;
 
-function TimeToString(aTime: OTime): string;
+function TimeToString(const aTime: OTime; const aCase: TCase): string;
 implementation
 
-function TimeToString(aTime: OTime): string;
+function TimeToString(const aTime: OTime; const aCase: TCase): string;
 begin
-  Result := 'год ' + IntToStr(Round(aTime) div 350) + ' день ' + IntToStr(Round(aTime) mod 350);
+  Result := IntToStr(Round(aTime) mod 350 + 1) +' ' +
+  WordCase('шен', aCase)
+  + ' ' + IntToStr(Round(aTime) div 350 + 1) + ' ' +
+  WordCase('шанах', aCase);
 end;
 
 
