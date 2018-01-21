@@ -42,54 +42,54 @@ Girc (rirraric) are right-chiral warm-blooded social creatures. Most often cover
 
 Flower of Fellaric is separated into three petals each separated into three nationalities:
 
-  Petal of Reptila
++Petal of Reptila
 
-    Transparenta - they're small and if following a strict diet, their bodies can become highly transparent. Dynamic stealth.
+*Transparenta - they're small and if following a strict diet, their bodies can become highly transparent. Dynamic stealth.
 
-    Talpa - slow and strong chameleons, capable of 3D retranslation of images behind them and walking walls and ceilings. Static stealth.
+*Talpa - slow and strong chameleons, capable of 3D retranslation of images behind them and walking walls and ceilings. Static stealth.
 
-    Serpenta - poisonous snake-like creatures, who have a long and a strong tail, which can be used to jump or to attack enemies.
+*Serpenta - poisonous snake-like creatures, who have a long and a strong tail, which can be used to jump or to attack enemies.
 
-  Petal of Ornita
++Petal of Ornita
 
-    Aspecta - have extremely sharp sight, but are incapable of speech.
+*Aspecta - have extremely sharp sight, but are incapable of speech.
 
-    Arachna - are masters of manipulation and hypnosis, thou hated by everybody else because of that.
+*Arachna - are masters of manipulation and hypnosis, thou hated by everybody else because of that.
 
-    Glacia - hypothetical third nationality of Ornita, living only in legends.
+*Glacia - hypothetical third nationality of Ornita, living only in legends.
 
-  Petal of Aqua
++Petal of Aqua
 
-    Amphibia - fish-like creatures, capable of holding breath for enormous amounts of time and feeling ok in cold water. The only Aqua nationality survived up to present.
+*Amphibia - fish-like creatures, capable of holding breath for enormous amounts of time and feeling ok in cold water. The only Aqua nationality survived up to present.
 
-    Ichta - extinct approximately 3000 years ago.
+*Ichta - extinct approximately 3000 years ago.
 
-    Electra - extinct approximately 3000 years ago.    
+*Electra - extinct approximately 3000 years ago.    
 
 Flower of Girraric is also separated into three petals each of three nationalities:
 
-  Petal of Canina
++Petal of Canina
 
-    Socia - are extemely beautiful and talkative, loved by both felc and girc.
+*Socia - are extemely beautiful and talkative, loved by both felc and girc.
 
-    Venada - have extremely acute senses and orientation skills. They're also psychology experts.
+*Venada - have extremely acute senses and orientation skills. They're also psychology experts.
 
-    Norda - can sustain extemely low temperatures, are stronger and taller than any other nationalities of felc and girc.
+*Norda - can sustain extemely low temperatures, are stronger and taller than any other nationalities of felc and girc.
 
-  Petal of Felina
++Petal of Felina
 
-    Nocta - stealthy creatures of the night, good thiefs and assasins, very agile and dexterous.
+*Nocta - stealthy creatures of the night, good thiefs and assasins, very agile and dexterous.
 
-    Mediana - average in all means.
+*Mediana - average in all means.
 
-    Magmata - hypothetical third nationality of Felina. Speculated to be remnants of creatures recently discovered in lava caves after a volcano eruption.
+*Magmata - hypothetical third nationality of Felina. Speculated to be remnants of creatures recently discovered in lava caves after a volcano eruption.
 
-  Raccoona
++Raccoona
 
-    Scienta - extremely intelligent, have tendency to math sciences.
+*Scienta - extremely intelligent, have tendency to math sciences.
 
-    Vitana - have very acute perception, making them capable of medical sciences and even foreseeing future.
+*Vitana - have very acute perception, making them capable of medical sciences and even foreseeing future.
 
-    Somnia - are lost-minded dreamers and romancers.
+*Somnia - are lost-minded dreamers and romancers.
 
 The Protagonist finds himself stranded in a huge icy desert near the North Pole of Rorrim due to a plane crash, surrounded by inaccessible mountains, whith him/her being lone survivor. There are 8 Oazises - huge geothermally warmed areas featuring large cities, forests and fields and a multitude of smaller Splashes or Hot-Spots usually large enough to sustain life for a few inhabitants. Polar day, aurora borealis, deadly cold mixed with hot ground, there's much to explore both above the ground and below, travel to unreachable places, and, maybe, decide the destiny of the whole felgir civilization...
