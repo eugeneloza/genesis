@@ -95,6 +95,7 @@ type OCharacter = class(TObject)
     Spouse: OCharacter;
     procedure Marry(const aSpouse: Ocharacter);
     procedure Divorce;
+    procedure Birth;
     procedure WriteDebug;
   public
     Facts: OFactList;
@@ -106,6 +107,7 @@ type OCharacter = class(TObject)
     constructor Create(const aNationality: TNationality);
     { completely random character }
     constructor Create;
+    destructor Destroy; override;
 end;
 
 type
@@ -358,9 +360,20 @@ begin
   if (Nationality in GircNationality) and (Mother.Chirality = Felc) then
     Nationality := Mother.Nationality;
 
-  MakeName;
 
-  //mix genes
+  Birth;   //will happen later
+end;
+
+procedure OCharacter.Birth;
+begin
+  MakeName;
+  Facts.Add(OBirthdayFact.Create(Self.Id, Self.Father.Id, Self.Mother.Id, Today));
+end;
+
+destructor OCharacter.Destroy;
+begin
+  Facts.Free;
+  inherited Destroy;
 end;
 
 procedure OCharacter.Marry(const aSpouse: Ocharacter);

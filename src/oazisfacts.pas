@@ -43,9 +43,12 @@ type
   OBirthdayFact = class(OFact)
   public
     function Say: string; override;
+    constructor Create(const aChild, aMother, aFather: TId; const aTime: OTime);
   end;
 
 implementation
+uses
+  OazisCharacters;
 
 constructor OFact.Create;
 begin
@@ -63,6 +66,18 @@ function OBirthdayFact.Say: string;
 begin
   Result := 'Я родился(ась) ' + TimeToString(Self.Time, GEN);
 end;
+
+constructor OBirthdayFact.Create(const aChild, aMother, aFather: TId; const aTime: OTime);
+begin
+  inherited Create;
+
+  Parent := aChild;
+  About.Add(aChild); //0
+  About.Add(aMother);
+  About.Add(aFather); //2
+  Time := aTime;
+end;
+
 
 end.
 
