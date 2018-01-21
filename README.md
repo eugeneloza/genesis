@@ -42,13 +42,13 @@ Girc (rirraric) are right-chiral warm-blooded social creatures. Most often cover
 
 Flower of Fellaric is separated into three petals each separated into three nationalities:
 
-+Petal of Reptila
++ Petal of Reptila
 
-*Transparenta - they're small and if following a strict diet, their bodies can become highly transparent. Dynamic stealth.
+  * Transparenta - they're small and if following a strict diet, their bodies can become highly transparent. Dynamic stealth.
 
-*Talpa - slow and strong chameleons, capable of 3D retranslation of images behind them and walking walls and ceilings. Static stealth.
+  * Talpa - slow and strong chameleons, capable of 3D retranslation of images behind them and walking walls and ceilings. Static stealth.
 
-*Serpenta - poisonous snake-like creatures, who have a long and a strong tail, which can be used to jump or to attack enemies.
+  * Serpenta - poisonous snake-like creatures, who have a long and a strong tail, which can be used to jump or to attack enemies.
 
 +Petal of Ornita
 
