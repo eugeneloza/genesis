@@ -3,7 +3,7 @@ Genesis is an experiment on building a living world, where npc are born, they li
 
 # Language
 
-At this point the generator is available only in Russian (rather in an artificially modified Russian), and will hardly ever be available in other language.
+At this point the generator is available only in Russian (actually it's an artificial language called Hrubrew), and will hardly ever be available in other language.
 
 # Basics
 
