@@ -131,6 +131,7 @@ begin
   case aChirality of
     Felc: Result := 'Фэлк';
     Girc: Result := 'Гирк';
+    else Result := 'ERROR';
   end;
 end;
 function GenderToString(const aGender: TGender): string;
@@ -138,6 +139,7 @@ begin
   case aGender of
     Male: Result := 'Мужчина';
     Female: Result := 'Женщина';
+    else Result := 'ERROR';
   end;
 end;
 function NationalityToMulticase(const aNationality: TNationality): TMulticase;
@@ -161,6 +163,7 @@ begin
     Amphibia    : Result := Multicase('Амфибиа');
     Ichta       : Result := Multicase('Ихта');
     Electra     : Result := Multicase('Электра');
+    else Result := Multicase('ERROR');
   end;
 end;
 
@@ -201,6 +204,7 @@ procedure OCharacter.MakeName;
       30: Result := 'Ром';
       31: Result := 'Пир';
       32: Result := 'Рев';
+      else Result := 'ERROR';
     end;
   end;
   function GetMidSyllable: string;
@@ -239,6 +243,7 @@ procedure OCharacter.MakeName;
       30: Result := 'эф';
       31: Result := 'ил';
       32: Result := 'эр';
+      else Result := 'ERROR';
     end;
   end;
 var
@@ -406,11 +411,17 @@ procedure OCharacter.WriteDebug;
   begin
     Form1.Memo1.Lines.Add(IntToStr(Self.ID) + ':' + s);
   end;
+var
+  f: OFact;
 begin
   W(MultiCaseToString(Self.Name, NOM) + ' (просто ' + MultiCaseToString(Self.ShortName, NOM) + ')');
   W('Хиральность: ' + ChiralityToString(Self.Chirality));
   W('Пол: ' + GenderToString(Self.Gender));
   W('Национальность: ' + MulticaseToString(NationalityToMulticase(Self.Nationality), NOM));
+
+  for f in Facts do
+    Form1.Memo1.Lines.Add(f.Say);
+
   if (Self.Father <> nil) and (Self.Mother <> nil) then begin
     if Self.Chirality = Girc then
     begin

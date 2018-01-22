@@ -64,7 +64,12 @@ end;
 
 function OBirthdayFact.Say: string;
 begin
-  Result := 'Я родился(ась) ' + TimeToString(Self.Time, GEN);
+  case Rnd.Random(4) of
+    0: Result := 'Я родился(ась) ' + TimeToString(Self.Time, GEN);
+    1: Result := 'Мой день рождения ' + TimeToString(Self.Time, GEN);
+    2: Result := TimeToString(Self.Time, GEN) + ' я появился(ась) на свет.';
+    else Result := 'Моя история началась ' + TimeToString(Self.Time, GEN);
+  end;
 end;
 
 constructor OBirthdayFact.Create(const aChild, aMother, aFather: TId; const aTime: OTime);
