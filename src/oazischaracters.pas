@@ -111,7 +111,6 @@ type OCharacter = class(TObject)
 end;
 
 type
-  TNameDictionary = specialize TDictionary<string, string>;
   TCharacterList = specialize TObjectList<OCharacter>;
 
 var
@@ -119,7 +118,6 @@ var
 
   Population: TCharacterList;
 
-  NameSpace: TNameDictionary;
 
 
 implementation
@@ -273,11 +271,11 @@ begin
   end
   else
   begin
-    case Rnd.Random(6) of
+    case Rnd.Random(12) of
       0: FemaleEnding := 'ая';
       1: FemaleEnding := 'ия';
       2..3: FemaleEnding := 'я';
-      else FemaleEnding := 'а';
+      else FemaleEnding := 'а'; {4 times more often than others}
     end;
     RandomRoot := RandomRoot + FemaleEnding;
 
@@ -464,11 +462,9 @@ begin
 end;
 
 initialization
-  NameSpace := TNameDictionary.Create;
   Population := TCharacterList.Create(true);
 
 finalization
-  NameSpace.Free;
   Population.Free;
 
 

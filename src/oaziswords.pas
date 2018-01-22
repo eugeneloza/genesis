@@ -23,6 +23,9 @@ unit OazisWords;
 
 interface
 
+uses
+  Generics.Collections;
+
 { Nominative case
   Prepositional case (говорить o ком – o чём)
   Genitive case (нет кого – чего)
@@ -33,6 +36,12 @@ interface
 type
   TCase = (NOM, PRE, GEN, ACC, DAT, INS, VOC, mul_);
   TMulticase = array [TCase] of string;
+
+type
+  TWordsDictionary = specialize TDictionary<string, string>;
+
+var
+  NameSpace: TWordsDictionary;
 
 function Multicase(const aWord: string): TMulticase;
 function MultiCaseToString(const aMulticase: TMultiCase; const aCase: TCase): string;
@@ -204,6 +213,19 @@ function WordCase(const aWord: string; aCase: TCase): string;
 begin
   Result := MultiCaseToString(Multicase(aWord),aCase);
 end;
+
+{ Remove generic words to prevent them in possible generated names }
+procedure AddBannedNames;
+begin
+
+end;
+
+initialization
+  NameSpace := TWordsDictionary.Create;
+  AddBannedNames;
+
+finalization
+  NameSpace.Free;
 
 end.
 
