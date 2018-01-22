@@ -255,8 +255,8 @@ begin
     RandomRoot := FirstSyllable;
     for i := 0 to Rnd.Random(2) do
       RandomRoot := RandomRoot + GetMidSyllable;
-  until not NameSpace.ContainsValue(RandomRoot);
-  NameSpace.Add(RandomRoot,RandomRoot);
+  until not NameSpace.Find(RandomRoot, i);
+  NameSpace.Add(RandomRoot);
 
   if Self.Gender = Male then
   begin

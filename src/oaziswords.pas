@@ -24,7 +24,7 @@ unit OazisWords;
 interface
 
 uses
-  Generics.Collections;
+  Classes;
 
 { Nominative case
   Prepositional case (говорить o ком – o чём)
@@ -38,7 +38,7 @@ type
   TMulticase = array [TCase] of string;
 
 type
-  TWordsDictionary = specialize TDictionary<string, string>;
+  TWordsDictionary = TStringList;
 
 var
   NameSpace: TWordsDictionary;
@@ -217,11 +217,12 @@ end;
 { Remove generic words to prevent them in possible generated names }
 procedure AddBannedNames;
 begin
-
+  NameSpace.Add('Пират');
 end;
 
 initialization
   NameSpace := TWordsDictionary.Create;
+  NameSpace.Sorted := true;
   AddBannedNames;
 
 finalization
