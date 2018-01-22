@@ -85,9 +85,9 @@ begin
         RandomCharacter := Rnd.Random(Population.Count);
         WriteLnLog(IntToStr(RandomCharacter));
         p2 := Population.Items[RandomCharacter];
-        if p2.ID <> p1.ID then
+        if (p2.ID <> p1.ID) and (p2.isAlive) then
         begin
-
+          p1.Meet(p2.ID)
         end;
       end;
     end;

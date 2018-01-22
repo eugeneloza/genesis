@@ -104,10 +104,12 @@ type
     Nationality: TNationality;
     Father, Mother: OCharacter;
     Spouse: OCharacter;
-    procedure Marry(const aSpouse: Ocharacter);
-    procedure Divorce;
     procedure Birth;
     procedure WriteDebug;
+  public
+    procedure Marry(const aSpouse: Ocharacter);
+    procedure Divorce;
+    procedure Meet(const aID: TId);
   public
     Friends: OFriendList;
     Pregnancy: array of OCharacter;
@@ -426,6 +428,11 @@ begin
   Form1.Memo1.LInes.Add(MultiCaseToString(Self.Name, NOM) + ' и ' + MultiCaseToString(Spouse.Name, NOM) + ' более не состоят в браке ' + TimeToString(Today, GEN));
   Spouse.Spouse := nil;
   Spouse := nil;
+end;
+
+procedure OCharacter.Meet(const aID: TId);
+begin
+
 end;
 
 procedure OCharacter.WriteDebug;
