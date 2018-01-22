@@ -249,7 +249,7 @@ procedure OCharacter.MakeName;
 var
   i: integer;
   RandomRoot: string;
-  FirstSyllable: string;
+  FirstSyllable, FemaleEnding: string;
 begin
   //based on Chirality, Nationality and Gender
   repeat
@@ -273,7 +273,14 @@ begin
   end
   else
   begin
-    RandomRoot := RandomRoot + 'а';
+    case Rnd.Random(6) of
+      0: FemaleEnding := 'ая';
+      1: FemaleEnding := 'ия';
+      2..3: FemaleEnding := 'я';
+      else FemaleEnding := 'а';
+    end;
+    RandomRoot := RandomRoot + FemaleEnding;
+
     Name := Multicase(RandomRoot);
     ShortName[NOM] := FirstSyllable+'и';
     ShortName[PRE] := FirstSyllable+'е';

@@ -76,7 +76,18 @@ begin
     Result[VOC] := WordBase + 'о';
   end
   else
-  if isLastLetter('е', aWord) then
+  if isLastLetter('я', aWord) then
+  begin
+    //as femininum
+    WordBase := CropLastLetter('я', aWord);
+    Result[PRE] := WordBase + 'е';
+    Result[GEN] := WordBase + 'и';
+    Result[ACC] := WordBase + 'ю';
+    Result[DAT] := WordBase + 'е';
+    Result[INS] := WordBase + 'ей';
+    Result[VOC] := WordBase + 'ё';
+  end
+  else  if isLastLetter('е', aWord) then
   begin
     //as masculinum + jot + е
     WordBase := CropLastLetter('е', aWord);
