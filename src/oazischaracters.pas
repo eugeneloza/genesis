@@ -448,9 +448,12 @@ begin
     aFriend := OFriend.Create;
     aFriend.ID := aID;
     aFriend.TimesMet := 0;
+    Friends.Add(aID, aFriend);
   end;
   aFriend.LastMet := Today;
   Inc(aFriend.TimesMet);
+
+  Facts.Add(OMeetFact.Create(Self.Id, aID, Today));
 end;
 
 procedure OCharacter.Meet(const aID: TId);

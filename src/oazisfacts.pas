@@ -46,6 +46,13 @@ type
     constructor Create(const aChild, aMother, aFather: TId; const aTime: OTime);
   end;
 
+type
+  OMeetFact = class(OFact)
+  public
+    function Say: string; override;
+    constructor Create(const aChar1, aChar2: TId; const aTime: OTime);
+  end;
+
 implementation
 uses
   OazisCharacters;
@@ -80,6 +87,23 @@ begin
   About.Add(aChild); //0
   About.Add(aMother);
   About.Add(aFather); //2
+  Time := aTime;
+end;
+
+function OMeetFact.Say: string;
+begin
+  case Rnd.Random(2) of
+    0: Result := 'Встретил(а) ' + MulticaseToString(GetCharacterById(About[1]).Name, ACC) + ' ' + TimeToString(Self.Time, GEN);
+    else Result := 'Виделся(ась) с ' + MulticaseToString(GetCharacterById(About[1]).Name, ACC) + ' ' + TimeToString(Self.Time, GEN);
+  end;
+end;
+
+constructor OMeetFact.Create(const aChar1, aChar2: TId; const aTime: OTime);
+begin
+  inherited Create;
+  Parent := aChar1;
+  About.Add(aChar1); //0
+  About.Add(aChar2);
   Time := aTime;
 end;
 
