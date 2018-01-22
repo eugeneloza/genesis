@@ -34,6 +34,7 @@ var
   Today: OTime = 0;
 
 function TimeToString(const aTime: OTime; const aCase: TCase): string;
+procedure doTime(const aT: OTime);
 implementation
 
 function TimeToString(const aTime: OTime; const aCase: TCase): string;
@@ -44,6 +45,10 @@ begin
   WordCase('шанах', aCase); //season, cycle
 end;
 
+procedure doTime(const aT: OTime);
+begin
+  Today := Today + aT;
+end;
 
 end.
 
