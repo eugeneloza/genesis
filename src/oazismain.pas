@@ -82,8 +82,8 @@ begin
       //p1 has up to 10 social interactions
       for k := 0 to Rnd.Random(10) do
       begin
-        RandomCharacter := Rnd.Random(Population.Count);
-        WriteLnLog(IntToStr(RandomCharacter));
+        RandomCharacter := Rnd.Random(Population.Count) + 1;
+        //WriteLnLog(IntToStr(RandomCharacter));
         p2 := Population.Items[RandomCharacter];
         if (p2.ID <> p1.ID) and (p2.isAlive) then
         begin

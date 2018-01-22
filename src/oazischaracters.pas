@@ -76,9 +76,10 @@ type
   public
     ID: TId;
     TimesMet: cardinal;
+    LastMet: OTime;
     //specific relations with the friend will go here
   end;
-  OFriendList = specialize TObjectList<OFriend>;
+  OFriendList = specialize TObjectDictionary<TId, OFriend>;
 
 type
   OCharacter = class(TObject)
@@ -109,6 +110,7 @@ type
   public
     procedure Marry(const aSpouse: Ocharacter);
     procedure Divorce;
+    procedure MeetInternal(const aID: TId);
     procedure Meet(const aID: TId);
   public
     Friends: OFriendList;
@@ -134,10 +136,17 @@ var
   Population: OCharacterDictionary;
 
 
-
+function GetCharacterById(const aID: TId): OCharacter;
 implementation
 uses
+  CastleLog,
   OazisMain;
+
+function GetCharacterById(const aID: TId): OCharacter;
+begin
+  if not Population.TryGetValue(aID, Result) then
+    Raise Exception.Create('Id not found!');
+end;
 
 function ChiralityToString(const aChirality: TChirality): string;
 begin
@@ -315,7 +324,7 @@ end;
 
 procedure OCharacter.MakeRandomCharacter(const aNationality: TNationality);
 begin
-
+  isAlive := true; //they skip embryo stage
   Gender := specialize RandomEnum<TGender>;
   Nationality := aNationality;
   if Nationality in FelcNationality then  //this is redundant, but I don't care :D
@@ -333,7 +342,7 @@ end;
 procedure OCharacter.Init;
 begin
   Facts := OFactList.Create(True);
-  Friends := OFriendList.Create;
+  Friends := OFriendList.Create([doOwnsValues]);
   SetLength(Genes, GeneCount);
   isValid := true;
   Inc(GlobalID);
@@ -430,9 +439,29 @@ begin
   Spouse := nil;
 end;
 
-procedure OCharacter.Meet(const aID: TId);
+procedure OCharacter.MeetInternal(const aID: TId);
+var
+  aFriend: OFriend;
 begin
+  if not Friends.TryGetValue(aID, aFriend) then
+  begin
+    aFriend := OFriend.Create;
+    aFriend.ID := aID;
+    aFriend.TimesMet := 0;
+  end;
+  aFriend.LastMet := Today;
+  Inc(aFriend.TimesMet);
+end;
 
+procedure OCharacter.Meet(const aID: TId);
+var
+  aChar: OCharacter;
+begin
+  Self.MeetInternal(aID);
+  //meeting is mutual;
+  aChar := GetCharacterById(aId);
+  aChar.MeetInternal(Self.ID);
+  //WriteLnLog(MulticaseToString(Self.Name, NOM) + ' meets', MulticaseToString(aChar.Name, ACC));
 end;
 
 procedure OCharacter.WriteDebug;
