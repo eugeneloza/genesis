@@ -94,6 +94,7 @@ type
     function RandomNationality: TNationality;
     procedure MakeRandomCharacter(const aNationality: TNationality);
   public
+    isAlive: boolean;
     isValid: boolean;
     ID: TID;
     Name, ShortName: TMulticase;
@@ -109,6 +110,8 @@ type
     procedure WriteDebug;
   public
     Friends: OFriendList;
+    Pregnancy: array of OCharacter;
+    PregnancyTimer: OTime;
     Facts: OFactList;
   strict private
     procedure Init;
@@ -119,15 +122,14 @@ type
     { completely random character }
     constructor Create;
     destructor Destroy; override;
-end;
-
-type
-  TCharacterList = specialize TObjectList<OCharacter>;
+  end;
+  //OCharacterList = specialize TObjectList<OCharacter>
+  OCharacterDictionary = specialize TObjectDictionary<TId, OCharacter>;
 
 var
   GlobalID: TID = 0;
 
-  Population: TCharacterList;
+  Population: OCharacterDictionary;
 
 
 
@@ -334,6 +336,7 @@ begin
   isValid := true;
   Inc(GlobalID);
   ID := GlobalID;
+  isAlive := false; // embryos are not alive and they don't take part in social life
 end;
 
 constructor OCharacter.Create;
@@ -389,6 +392,7 @@ end;
 procedure OCharacter.Birth;
 begin
   MakeName;
+  isAlive := true; //today is the day!
   Facts.Add(OBirthdayFact.Create(Self.Id, Self.Father.Id, Self.Mother.Id, Today));
 end;
 
@@ -475,7 +479,7 @@ begin
 end;
 
 initialization
-  Population := TCharacterList.Create(true);
+  Population := OCharacterDictionary.Create([doOwnsValues]);
 
 finalization
   Population.Free;
