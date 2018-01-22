@@ -71,7 +71,17 @@ type
     Source: TID;
   end;
 
-type OCharacter = class(TObject)
+type
+  OFriend = class(TObject)
+  public
+    ID: TId;
+    TimesMet: cardinal;
+    //specific relations with the friend will go here
+  end;
+  OFriendList = specialize TObjectList<OFriend>;
+
+type
+  OCharacter = class(TObject)
   private
     const
       GeneCount = 10;
@@ -98,6 +108,7 @@ type OCharacter = class(TObject)
     procedure Birth;
     procedure WriteDebug;
   public
+    Friends: OFriendList;
     Facts: OFactList;
   strict private
     procedure Init;
@@ -318,6 +329,7 @@ end;
 procedure OCharacter.Init;
 begin
   Facts := OFactList.Create(True);
+  Friends := OFriendList.Create;
   SetLength(Genes, GeneCount);
   isValid := true;
   Inc(GlobalID);
@@ -383,6 +395,7 @@ end;
 destructor OCharacter.Destroy;
 begin
   Facts.Free;
+  Friends.Free;
   inherited Destroy;
 end;
 

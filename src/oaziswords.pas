@@ -218,6 +218,8 @@ end;
 procedure AddBannedNames;
 begin
   NameSpace.Add('Пират');
+  NameSpace.Add('Пирог');
+  NameSpace.Add('Якарга');
 end;
 
 initialization
