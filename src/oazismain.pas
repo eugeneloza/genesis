@@ -45,34 +45,63 @@ var
   Form1: TForm1;
 
 implementation
+uses
+  CastleLog,
+  OazisTime, OazisWords;
 
 {$R *.lfm}
 
 { TForm1 }
 
 procedure TForm1.Button1Click(Sender: TObject);
+const
+  StepsToModel = 1000;
+  DeltaTime = 1; //one day step
 var
   C: OCharacter;
   i, j, k: integer;
+  RandomCharacter: integer;
   p1, p2: OCharacter;
 begin
-  Button1.Caption := 'Button' + Copy(Button1.Caption, Length(Button1.Caption), 1);
-
+  //seed the world
   for i := 0 to 100 do
   begin
     C := OCharacter.Create;
-    Population.Add(C);
+    Population.Add(C.Id, C);
   end;
 
-  for j := 0 to 20 do
+  for j := 0 to StepsToModel do
   begin
-    p1 := Population[Rnd.Random(Population.Count)];
+
+    doTime(DeltaTime); //skip 1 day
+    Memo1.Lines.Add('Сегодня ' + TimeToString(Today, NOM));
+
+    for p1 in Population.Values do
+    if p1.isAlive then
+    begin
+      //p1 has up to 10 social interactions
+      for k := 0 to Rnd.Random(10) do
+      begin
+        RandomCharacter := Rnd.Random(Population.Count);
+        WriteLnLog(IntToStr(RandomCharacter));
+        p2 := Population.Items[RandomCharacter];
+        if p2.ID <> p1.ID then
+        begin
+
+        end;
+      end;
+    end;
+  end;
+
+  {for j := 0 to 20 do
+  begin
+    p1 := Population.Items[];
     for k := 0 to Rnd.Random(4) do
     begin
       if (p1.Spouse = nil) or (p1.Chirality = Felc) then
       begin
         repeat
-          p2 := Population[Rnd.Random(Population.Count)];
+          p2 :=
         until (p1 <> p2) and (p1.Chirality = p2.Chirality) and
               (p1.Gender <> p2.Gender);
         if p1.Chirality = Girc then
@@ -84,13 +113,13 @@ begin
 
       C := OCharacter.Create(p1, p2);
       if C.isValid then begin
-        Population.Add(C);
+        Population.Add(C.Id, C);
         C.WriteDebug;
       end
       else
         C.Free;
     end;
-  end;
+  end;}
 end;
 
 end.
